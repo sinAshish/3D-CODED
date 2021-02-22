@@ -93,20 +93,24 @@ def parser():
     if opt.dir_name=="":
         opt.dir_name = os.path.join('log', opt.id + now.isoformat())
     else:
-        print("Modifying input arguments to match network in dirname")
-        with open(os.path.join(opt.dir_name, "options.json"), 'r') as f:
-            my_opt_dict = json.load(f)
-        opt.point_translation = my_opt_dict["point_translation"]
-        opt.dim_template = my_opt_dict["dim_template"]
-        opt.patch_deformation = my_opt_dict["patch_deformation"]
-        opt.dim_out_patch = my_opt_dict["dim_out_patch"]
-        opt.start_epoch = my_opt_dict["start_epoch"]
-        my_utils.cyan_print("PARAMETER: ")
-        for a in my_opt_dict:
-            print(
-                "         "
-                + colored(a, "yellow")
-                + " : "
-                + colored(str(my_opt_dict[a]), "cyan")
-            )
+        try:
+            with open(os.path.join(opt.dir_name, "options.json"), 'r') as f:
+                my_opt_dict = json.load(f)
+            print("Modifying input arguments to match network in dirname")
+            opt.point_translation = my_opt_dict["point_translation"]
+            opt.dim_template = my_opt_dict["dim_template"]
+            opt.patch_deformation = my_opt_dict["patch_deformation"]
+            opt.dim_out_patch = my_opt_dict["dim_out_patch"]
+            opt.start_epoch = my_opt_dict["start_epoch"]
+            my_utils.cyan_print("PARAMETER: ")
+            for a in my_opt_dict:
+                print(
+                    "         "
+                    + colored(a, "yellow")
+                    + " : "
+                    + colored(str(my_opt_dict[a]), "cyan")
+                )
+        except IOError:
+            print("`options.json` does not exist in dir_name. Input arguments are not modified.")
+
     return opt
