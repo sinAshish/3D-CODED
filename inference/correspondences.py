@@ -101,16 +101,17 @@ class Inference(object):
                 closest_points = np.mean(closest_points, 1, keepdims=False)
 
             # save output
-            if not os.path.exists("results"):
+            results_path = os.path.join(self.save_path, "results")
+            if not os.path.exists(results_path):
                 print("Creating results folder")
-                os.mkdir("results")
+                os.mkdir(results_path)
 
             if path is None:
-                np.savetxt("results/correspondences.txt", closest_points, fmt='%1.10f')
+                np.savetxt(os.path.join(results_path, "correspondences.txt"), closest_points, fmt='%1.10f')
             else:
                 np.savetxt(os.path.join(self.save_path, path), closest_points, fmt='%1.10f')
             mesh = trimesh.Trimesh(vertices=closest_points, faces=source.faces, process=False)
-            mesh.export("results/correspondences.ply")
+            mesh.export(os.path.join(results_path, "correspondences.ply"))
 
     def forward(self, inputA="data/example_0.ply", inputB="data/example_1.ply", path=None):
         print("computing correspondences for " + inputA + " and " + inputB)
