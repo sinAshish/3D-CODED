@@ -29,11 +29,11 @@ class Trainer(AbstractTrainer):
         network.cuda()  # put network on GPU
         network.apply(my_utils.weights_init)  # initialization of the weight
         if self.opt.model != "":
-            try:
-                network.load_state_dict(torch.load(self.opt.model))
-                print(" Previous network weights loaded! From ", self.opt.model)
-            except:
-                print("Failed to reload ", self.opt.model)
+            # try:
+            network.load_state_dict(torch.load(self.opt.model))
+            print(" Previous network weights loaded! From ", self.opt.model)
+            # except:
+            #    print("Failed to reload ", self.opt.model)
         if self.opt.reload:
             print(f"reload model frow :  {self.opt.dir_name}/network.pth")
             self.opt.model = os.path.join(self.opt.dir_name, "network.pth")
