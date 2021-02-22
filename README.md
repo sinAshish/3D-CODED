@@ -52,7 +52,7 @@ This implementation uses [Pytorch](http://pytorch.org/).
 git clone https://github.com/ThibaultGROUEIX/3D-CODED.git ## Download the repo
 cd 3D-CODED; git submodule update --init
 conda env create -f 3D-CODED-ENV.yml ## Create python env
-source activate pytorch-3D-CODED
+conda activate pytorch-3D-CODED
 pip install http://imagine.enpc.fr/~langloip/data/pymesh2-0.2.1-cp37-cp37m-linux_x86_64.whl
 cd extension; python setup.py install; cd ..
 ```
