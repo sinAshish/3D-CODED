@@ -25,6 +25,8 @@ from mpl_toolkits import mplot3d
 import argument_parser
 import my_utils
 import trainer
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from termcolor import colored
 import pointcloud_processor
