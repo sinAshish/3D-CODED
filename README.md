@@ -48,6 +48,13 @@ Task : put them in point-wise correspondence. (suggested by color)
 
 This implementation uses [Pytorch](http://pytorch.org/). 
 
+[Jer's note]
+When running the `python setup.py` command (last one below) you might get a bunch of [odd warnings](https://github.com/ThibaultGROUEIX/3D-CODED/issues/4). 
+
+If this happens it might be because of the gcc version (I had warnings on gcc-9). You can change gcc to an older version (I found gcc-7 worked fine). I had to do this to get `import chamfer` to work.
+
+[/end Jer's note]
+
 ```shell
 git clone https://github.com/ThibaultGROUEIX/3D-CODED.git ## Download the repo
 cd 3D-CODED; git submodule update --init
