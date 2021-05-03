@@ -70,6 +70,12 @@ chmod +x ./inference/download_trained_models.sh
 ./inference/download_trained_models.sh
 ```
 
+You probably also want to download the body template, which you can do by running the following commands (~5 MB download):
+
+```shell
+chmod +x ./data/download_template.sh
+./data/download_template.sh
+```
 
 [/end Jer's note]
 
