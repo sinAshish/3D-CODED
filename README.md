@@ -57,6 +57,21 @@ pip install http://imagine.enpc.fr/~langloip/data/pymesh2-0.2.1-cp37-cp37m-linux
 cd extension; python setup.py install; cd ..
 ```
 
+[Jer's note] 
+After you install, you may want to download the trained weights first (this will be automatically done if you run the demo).
+Note this will download a ~14 GB zip file and will take time/space to download/unzip.
+It seems a bunch of files are unnecessary if you just want to run on your own data.
+Maybe can seperate to get just the ~15 MB trained weights.
+
+You can download all the files (including the trained weights) using the following commands:
+
+```shell
+chmod +x ./inference/download_trained_models.sh
+./inference/download_trained_models.sh
+```
+
+
+[/end Jer's note]
 
 
 ## Demo :train2: and Inference [Trained Models](https://drive.google.com/file/d/1ZAjOuTaeDrKJbFffzLnLn_K-C86fYCXs/view)
