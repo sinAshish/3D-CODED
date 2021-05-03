@@ -51,12 +51,12 @@ This implementation uses [Pytorch](http://pytorch.org/).
 [Jer's note]
 When running the `python setup.py` command (last one below) you might get a bunch of [odd warnings](https://github.com/ThibaultGROUEIX/3D-CODED/issues/4). 
 
-If this happens it might be because of the gcc version (I had warnings on gcc-9). You can change gcc to an older version (I found gcc-7 worked fine). I had to do this to get `import chamfer` to work.
+If this happens it might be because of the gcc version (I had warnings on gcc-9). You can change gcc to an older version (I found gcc-7 worked fine). I had to do this to get `import chamfer` to work (otherwise get `undefined symbol:` error).
 
 [/end Jer's note]
 
 ```shell
-git clone https://github.com/ThibaultGROUEIX/3D-CODED.git ## Download the repo
+git clone https://github.com/jeremykawahara/3D-CODED.git ## Download the repo
 cd 3D-CODED; git submodule update --init
 conda env create -f 3D-CODED-ENV.yml ## Create python env
 conda activate pytorch-3D-CODED
@@ -65,6 +65,15 @@ cd extension; python setup.py install; cd ..
 ```
 
 [Jer's note] 
+After running the above commands, if you can successfully `import chamfer` then you can confirm `chamfer` was compiled correctly:
+```shell
+python
+import torch
+import chamfer
+```
+
+If you get a warning about `undefined symbol` when importing chamfer then you may need to try compling using a different gcc version (I deleted the environment and the 3D-CODED directory and repeated the above steps).
+
 After you install, you may want to download the trained weights first (this will be automatically done if you run the demo).
 Note this will download a ~14 GB zip file and will take time/space to download/unzip.
 It seems a bunch of files are unnecessary if you just want to run on your own data.
