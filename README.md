@@ -55,6 +55,12 @@ If this happens it might be because of the gcc version (I had warnings on gcc-9)
 
 [/end Jer's note]
 
+[Ashish's Note]
+The aforementioned solution is not required now when running this repo.
+A python implementation of Chamfer Distance is included in this repo that doesn't require the code to be built from scratch. Hence, no GCC-7.x is required now.
+
+[/end Ashish's Note]
+
 ```shell
 git clone https://github.com/jeremykawahara/3D-CODED.git ## Download the repo
 cd 3D-CODED; git submodule update --init
