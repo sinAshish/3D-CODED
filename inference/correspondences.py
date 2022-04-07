@@ -14,9 +14,11 @@ from sklearn.neighbors import NearestNeighbors
 sys.path.append("./extension/")
 sys.path.append("./training/")
 sys.path.append("/app/python/")
-import dist_chamfer as ext
+#import dist_chamfer as ext
 
-distChamfer = ext.chamferDist()
+#distChamfer = ext.chamferDist()
+from chamfer_distance import ChamferDistance
+distChamfer = ChamferDistance()
 import trimesh
 import torch
 import pandas as pd
@@ -43,7 +45,8 @@ class Inference(object):
         self.clean = clean
         self.scale = scale
         self.project_on_target = project_on_target
-        self.distChamfer = ext.chamferDist()
+        #self.distChamfer = ext.chamferDist()
+        self.distChamfer = ChamferDistance()
         self.uniformize = uniformize
         # load network
         if network is None:
